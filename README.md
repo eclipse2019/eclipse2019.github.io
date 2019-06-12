@@ -2,7 +2,7 @@
 
 **Simbología**
 
-* Verde Claro: Hroizonte a 0-5°
+* Verde Claro: Hroizonte a 0.5°
 
 * Verde: Horizonte entre 0° y 2.5°
 
