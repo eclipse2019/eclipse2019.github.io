@@ -87,14 +87,21 @@
 	#over {
     		position: absolute;
     		top: 1%;
-			right:50%;
-			margin-right: -89px
+			right:0%;
+			margin-right: 1%;
 	}
 	#over2 {
     		position: absolute;
     		top: 1%;
-			right:50%;
-			margin-right: 2px
+			right:0%;
+			margin-right: 1%;
+			margin-top: 37px;
+	}
+	#legend {
+    		position: absolute;
+    		top: 1%;
+			left:40px;
+			margin-left: 1.5%
 	}
 	#credits {
     		position: absolute;
@@ -105,6 +112,47 @@
 			transform: translate(-50%, -50%);
 			font-size: 0.7em;
 	}
+							/* Dropdown Button */
+							.dropbtn {
+							  background-color: #4CAF50;
+							  color: white;
+							  padding: 12px;
+							  font-size: 12px;
+							  border: none;
+							}
+
+							/* The container <div> - needed to position the dropdown content */
+							.dropdown {
+							  position: relative;
+							  display: inline-block;
+							}
+
+							/* Dropdown Content (Hidden by Default) */
+							.dropdown-content {
+							  display: none;
+							  position: absolute;
+							  background-color: #aadaff;
+							  min-width: 180px;
+							  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+							  z-index: 1;
+							}
+
+							/* Links inside the dropdown */
+							.dropdown-content a {
+							  color: black;
+							  padding: 8px 5px;
+							  text-decoration: none;
+							  display: block;
+							}
+
+							/* Change color of dropdown links on hover */
+							.dropdown-content a:hover {background-color: #ddd;}
+
+							/* Show the dropdown menu on hover */
+							.dropdown:hover .dropdown-content {display: block;}
+
+							/* Change the background color of the dropdown button when the dropdown content is shown */
+							.dropdown:hover .dropbtn {background-color: #3e8e41;}
         </style>
         <title></title>
     </head>
@@ -143,10 +191,24 @@
 		<img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
 		</form>
 	</div>
-<div id="credits">
-<p style="text-align:center">
-<a href="mailto:ivan_xd@live.cl" target="_top">©Ivan Gonzalez</a> <br> Map data ©2019 Google</p>
-</div>	
+	
+	<div id="credits">
+	<p style="text-align:center">
+	<a href="mailto:ivan_xd@live.cl" target="_top">©Ivan Gonzalez</a> <br> Map data ©2019 Google</p>
+	</div>	
+
+	<div class="dropdown" id="legend">
+	  <button class="dropbtn">Leyenda</button>
+	  <div class="dropdown-content">
+		<a ><IMG height=10 src="" width=0 align=baseline> <b>Altura angular del horizonte noroeste</b> </a>
+		<a ><IMG height=10 src="images/pixLgreen.gif" width=10 align=baseline> <0.5° / C4 visible </a>
+		<a ><IMG height=10 src="images/pixGreen.gif" width=10 align=baseline> 0.5° - 2.5° </a>
+		<a ><IMG height=10 src="images/pixYellow.gif" width=10 align=baseline> 2.5° - 5.0° </a>
+		<a ><IMG height=10 src="images/pixOrange.gif" width=10 align=baseline> 5.0° - 7.5° </a>
+		<a ><IMG height=10 src="images/pixRed.gif" width=10 align=baseline> 7.5° - 12° </a>
+		<a ><IMG height=10 src="images/pixBlack.gif" width=10 align=baseline> >12° / Eclipse no visible</a>
+	  </div>
+	</div>
 		
     </body>
 </html>
