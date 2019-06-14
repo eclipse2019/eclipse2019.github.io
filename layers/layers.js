@@ -20,7 +20,7 @@ var wms_layers = [];
     attributions: '<a href=""></a>',
                                 projection: 'EPSG:3857',
                                 alwaysInRange: true,
-                                imageExtent: [-8042833.209814, -3667863.649746, -7747836.559212, -3261587.361843]
+                                imageExtent: [-8042833.209814, -3714839.770901, -7614253.170260, -3261587.361843]
                             })
                         });
         var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
