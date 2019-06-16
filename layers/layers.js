@@ -32,7 +32,7 @@ var lyr_max8_1 = new ol.layer.Tile({
   })
 });
 
-var api_key = '462cc50d377232b94e9c547dcb7a3f9b';
+
 var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
   'title': 'Google Maps Roads',
   'type': 'base',
@@ -46,9 +46,10 @@ var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
 
 var layer_cloud = new ol.layer.Tile({
   source: new ol.source.XYZ({
-    url: 'https://a.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2'
+    //url: 'https://a.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2'
   })
 });
+
 
 var layer_radar = new ol.layer.Tile({
   source: new ol.source.XYZ({
