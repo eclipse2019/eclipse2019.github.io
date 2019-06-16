@@ -10,19 +10,30 @@ var wms_layers = [];
     attributions: '<a href=""></a>',
                 url: 'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'
             })
-        });var lyr_max8_1 = new ol.layer.Image({
+        });
+		/*
+		var lyr_max8_1 = new ol.layer.Image({
                             opacity: 1,
-                            title: "max8",
-                            
-                            
+							title: "max8",
                             source: new ol.source.ImageStatic({
                                url: "./layers/max8_1.png",
-    attributions: '<a href=""></a>',
+								attributions: '<a href=""></a>',
                                 projection: 'EPSG:3857',
                                 alwaysInRange: true,
-                                imageExtent: [-8042833.209814, -3714839.770901, -7614253.170260, -3261587.361843]
+                                imageExtent: [-8042833.209814, -3714839.770901, -7614253.170260, -3261587.361843]	
                             })
                         });
+		*/
+		
+		var lyr_max8_1 = new ol.layer.Tile({
+			'title': 'myxyz',
+			'opacity': 1.000000,
+			source: new ol.source.XYZ({
+				attributions: '<a href=""></a>',
+				url: './layers/tiles/{z}/{x}/{y}.png'
+			})
+		});	
+		
         var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
             'title': 'Google Maps Roads',
             'type': 'base',
