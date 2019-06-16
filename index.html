@@ -102,9 +102,23 @@
 	#legend {
     		position: absolute;
     		top: 1%;
-			left:40px;
-			margin-left: 1.5%
+			  left:40px;
+			  margin-left: 1.5%;
+        margin-top: 4em;
 	}
+
+  #nubes_check {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    font-size: 1em;
+    border: none;
+    		position: absolute;
+    		top: 1%;
+			  left:40px;
+			  margin-left: 1.5%
+	}
+
 	#credits {
     		position: absolute;
 			bottom: -2%;
@@ -118,8 +132,8 @@
 							.dropbtn {
 							  background-color: #4CAF50;
 							  color: white;
-							  padding: 12px;
-							  font-size: 12px;
+							  padding: 1em;
+							  font-size: 1em;
 							  border: none;
 							}
 
@@ -197,12 +211,12 @@
 	<div id="credits">
 	<p style="text-align:center">
 	<a href="mailto:ivan_xd@live.cl" target="_top">©Ivan Gonzalez</a> <br> Map data ©2019 Google
-  <!-- <br> <a href="http://www.accuweather.com"><IMG height=10 src="images/aw.png"  align=baseline> </a> -->
+  <br> <a href="http://www.accuweather.com"><IMG height=10 src="images/aw.png"  align=baseline> </a>
   </p>
 	</div>
 
 	<div class="dropdown" id="legend">
-	  <button class="dropbtn">Leyenda</button>
+	  <button class="dropbtn">Leyenda / Legend</button>
 	  <div class="dropdown-content">
 		<a ><IMG height=10 src="" width=0 align=baseline> <b>Altura angular del horizonte noroeste</b> </a>
 		<a ><IMG height=10 src="images/pixLgreen.gif" width=10 align=baseline> <0.5° / C4 visible </a>
@@ -214,5 +228,9 @@
 	  </div>
 	</div>
 
+  <div id="nubes_check">
+    <form> <input type="checkbox" onclick="toggleVisibility(this)" checked> Nubes / Clouds</form>
+  </div>
     </body>
+
 </html>
