@@ -19,6 +19,30 @@
 	    enable_page_level_ads: true
 	  });
 	</script>
+
+  <script type="text/javascript">
+  // Getting current timestamp for accuweather
+    (function() {
+      function pad(number) {
+        if (number < 10) {
+          return '0' + number;
+        }
+        return number;
+      }
+      Date.prototype.tiempoActual = function() {
+        return this.getUTCFullYear() +
+          '-' + pad(this.getUTCMonth() + 1) +
+          '-' + pad(this.getUTCDate()) +
+          'T' + pad(this.getUTCHours()) +
+          ':00:00Z';
+      };
+
+    }());
+    var currentDate = new Date();
+    currentDate.setMinutes(currentDate.getMinutes() - 15);
+    var timestamp = currentDate.tiempoActual();
+  </script>
+
 	   <meta property="fb:app_id"          content="334689857202881" />
 		<meta property="og:image" content="https://eclipse2019.github.io/images/fb_splash.jpg" />
 		<meta property="og:type" content="website" />
@@ -229,8 +253,10 @@
 	</div>
 
   <div id="nubes_check">
-    <form> <input type="checkbox" onclick="toggleVisibility(this)" checked> Nubes / Clouds</form>
+    <form> <input type="checkbox" onclick="toggleVisibility(this)" unchecked> Nubes / Clouds</form>
   </div>
+  <!-- <script type="text/javascript">    document.write(timestamp)  </script> -->
+
     </body>
 
 </html>

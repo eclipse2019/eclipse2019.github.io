@@ -51,9 +51,11 @@ var layer_cloud = new ol.layer.Tile({
 });
 
 
+
+accu = 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/'+timestamp+'/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96';
 var layer_radar = new ol.layer.Tile({
   source: new ol.source.XYZ({
-    url: 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/2019-06-16T11:00:00Z/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96',
+    url: accu,
   })
 });
 
@@ -116,7 +118,7 @@ var features_centralLine_3 = format_centralLine_3.readFeatures(json_centralLine_
           lyr_limiteNorte_4.setVisible(true);
           lyr_limiteSur_5.setVisible(true);
 
-          
+
 
           var layersList = [group_group1,group_Path,layer_radar];
           lyr_centralLine_3.set('fieldAliases', {'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
@@ -132,6 +134,7 @@ var features_centralLine_3 = format_centralLine_3.readFeatures(json_centralLine_
             evt.context.globalCompositeOperation = 'normal';
           });
 
+          layer_radar.setVisible(false);
           function toggleVisibility(element) {
             if (element.checked) {
             	layer_radar.setVisible(true);
