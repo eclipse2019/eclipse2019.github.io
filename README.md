@@ -1,4 +1,4 @@
-# visibilidadEclipse2019
+# English
 
 Since next solar eclipse 2019 will occur near sunset hour, and given the  mountainous topography of Chile, we have to locate ourselves in a place where the north-western horizon can be seen without large obstructions. That's why I developed this map. The map shows in colors the locations where the horizon is clear of mountains and which places are obstructed.
 
@@ -23,6 +23,7 @@ I hope you find it useful, and if so, donations would be highly apreciated.
 * Black: Obstruction higher than 12° (Eclipse barely/not visible)
 
 ----------------------------------------
+# Español
 
 Dado que el próximo eclipse ocurrirá cerca de la hora de la puesta de sol, se hace necesario ubicarnos en un lugar donde se pueda ver el horizonte noroeste sin muchas obstrucciones. Es por esto que desarrollé este mapa. El mapa muestra con colores cuáles son los lugares donde el horizonte se encuentra despejado de montañas y qué lugares están obstruidos.  
 
