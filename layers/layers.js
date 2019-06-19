@@ -9,26 +9,16 @@ var lyr_GoogleMapsClassic_0 = new ol.layer.Tile({
     url: 'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'
   })
 });
-/*
-var lyr_max8_1 = new ol.layer.Image({
-opacity: 1,
-title: "max8",
-source: new ol.source.ImageStatic({
-url: "./layers/max8_1.png",
-attributions: '<a href=""></a>',
-projection: 'EPSG:3857',
-alwaysInRange: true,
-imageExtent: [-8042833.209814, -3714839.770901, -7614253.170260, -3261587.361843]
-})
-});
-*/
 
 var lyr_max8_1 = new ol.layer.Tile({
   'title': 'myxyz',
   'opacity': 1.000000,
+  'extent': [-8042833.209814, -3714839.770901, -7614253.170260, -3261587.361843],
   source: new ol.source.XYZ({
+    minZoom: 6,
+    maxZoom: 13 ,
     attributions: '<a href=""></a>',
-    url: './layers/tiles/{z}/{x}/{y}.png'
+    url: './layers/tiles/{z}/{x}/{y}.png',
   })
 });
 
@@ -45,15 +35,30 @@ var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
 
 
 var layer_cloud = new ol.layer.Tile({
+  'opacity': 1.00000,
   source: new ol.source.XYZ({
     //url: 'https://a.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=9de243494c0b295cca9337e1e96b00e2'
+    //weather.com cloud layer
+    // sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=sat
+    url: 'https://api.weather.com/v3/TileServer/tile?product=sat&ts='+ts_WeatherSat+'&xyz={x}:{y}:{z}&apiKey=d522aa97197fd864d36b418f39ebb323'
+  })
+});
+
+var layer_Satellite = new ol.layer.Tile({
+  'opacity': 0.75,
+  source: new ol.source.XYZ({
+    //weather.com satellite Visible
+    // esto esta buenisimo!! Se vera la sombra de la luna desde el satelite!!
+    // sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=satgoes16FullDiskVis
+    url: 'https://api.weather.com/v3/TileServer/tile?product=satgoes16FullDiskVis&ts='+ts_satgoes+'&xyz={x}:{y}:{z}&apiKey=d522aa97197fd864d36b418f39ebb323'
   })
 });
 
 
+accu = 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/'+timestampAccu+'/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96';
 var layer_radar = new ol.layer.Tile({
   source: new ol.source.XYZ({
-    //url: 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/2019-06-16T11:00:00Z/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96',
+    //url: accu,
   })
 });
 
@@ -116,9 +121,9 @@ var features_centralLine_3 = format_centralLine_3.readFeatures(json_centralLine_
           lyr_limiteNorte_4.setVisible(true);
           lyr_limiteSur_5.setVisible(true);
 
-          layer_radar.setVisible(false);
 
-          var layersList = [group_group1,group_Path,layer_radar];
+
+          var layersList = [group_group1,group_Path,layer_radar,layer_cloud,layer_Satellite];
           lyr_centralLine_3.set('fieldAliases', {'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
           lyr_limiteNorte_4.set('fieldAliases', {'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
           lyr_limiteSur_5.set('fieldAliases', {'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
@@ -131,3 +136,21 @@ var features_centralLine_3 = format_centralLine_3.readFeatures(json_centralLine_
           lyr_limiteSur_5.on('precompose', function(evt) {
             evt.context.globalCompositeOperation = 'normal';
           });
+
+          layer_radar.setVisible(false);
+          layer_cloud.setVisible(false);
+          layer_Satellite.setVisible(false);
+          function toggleVisibility_clouds(element) {
+            if (element.checked) {
+              layer_cloud.setVisible(true);
+            } else {
+              layer_cloud.setVisible(false);
+            }
+          }
+          function toggleVisibility_satellite(element) {
+            if (element.checked) {
+              layer_Satellite.setVisible(true);
+            } else {
+              layer_Satellite.setVisible(false);
+            }
+          }
