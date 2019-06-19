@@ -24,6 +24,10 @@ I hope you find it useful, and if so, donations would be highly apreciated.
 
 * Black: Obstruction higher than 12° (Eclipse barely/not visible)
 
+**Technical details**
+
+The map was developed using terrain data provided by JAXA at 30 m of resolution. GRASS GIS r.horizon function was used inside QGIS to calculate the angular elevation of the mountains at different angles of azimuth around the azimuth of the sun during totality, for every pixel of the elevation map. The results where stacked by taking the maximum angle of horizon at each raster cell.
+
 ----------------------------------------
 # Español
 
@@ -47,3 +51,8 @@ Espero que les sea de utilidad, y si es así, se agradece dejar una donación a 
 * Rojo: 7.5° - 12°
 
 * Negro: Horizonte mas alto que 12° (Eclipse total no visible)
+
+
+**Detalles técnicos**
+
+El mapa fue desarrollado usando datos topográficos de 30 m de resolución, provistos por JAXA. La función r.horizon de GRASS GIS fue usada dentro de QGIS para determinar la elevación angular de las montañas en diferentes direcciones azimutales en torno a la direción del sol durante el eclipse total. Los resultados asociados a cada ángulo azimutal fueron apilados tomando el máximo en cada celda de la grilla.
