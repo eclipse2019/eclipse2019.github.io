@@ -1,3 +1,64 @@
+// Sacando timestamps para las API de mapas
+// Getting current timestamp for accuweather
+/*
+(function() {
+  function pad(number) {
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number;
+  }
+  Date.prototype.tiempoActual = function() {
+    return this.getUTCFullYear() +
+    '-' + pad(this.getUTCMonth() + 1) +
+    '-' + pad(this.getUTCDate()) +
+    'T' + pad(this.getUTCHours()) +
+    ':00:00Z';
+  };
+}());
+var currentDate = new Date();
+currentDate.setMinutes(currentDate.getMinutes() - 15);
+var timestampAccu = currentDate.tiempoActual();
+*/
+
+//Getting weather.com/sat timestamp
+// sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=sat
+var ts_WeatherSat;
+ts_WeatherSat = new Date().valueOf()/1000 | 0;
+ts_WeatherSat = ((ts_WeatherSat/900 | 0)-1)*900;
+
+/*
+$.ajax({
+  url: 'https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=sat',
+  dataType: 'json',
+  async: false,
+  success: function(json){
+      ts_WeatherSat = json.seriesInfo.sat.series[0].ts;
+  }
+});
+*/
+//console.log(ts_WeatherSat);
+//console.log(new Date().valueOf()/1000 | 0);
+
+//Getting weather.com/satgoes16FullDiskVis timestamp
+// sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=satgoes16FullDiskVis
+var ts_satgoes;
+ts_satgoes = new Date().valueOf()/1000 | 0;
+ts_satgoes = ((((ts_satgoes-56)/600 | 0))-3)*600+56;
+/*
+$.ajax({
+  url: 'https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=satgoes16FullDiskVis',
+  dataType: 'json',
+  async: false,
+  success: function(json){
+      ts_satgoes = json.seriesInfo.satgoes16FullDiskVis.series[0].ts;
+  }
+});
+*/
+//console.log(ts_satgoes);
+
+
+
 var wms_layers = [];
 
 var lyr_GoogleMapsClassic_0 = new ol.layer.Tile({
@@ -55,7 +116,7 @@ var layer_Satellite = new ol.layer.Tile({
 });
 
 
-accu = 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/'+timestampAccu+'/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96';
+//accu = 'https://api.accuweather.com/maps/v1/satellite/globalIR/zxy/'+timestampAccu+'/{z}/{x}/{y}.png?apikey=d41dfd5e8a1748d0970cba6637647d96';
 var layer_radar = new ol.layer.Tile({
   source: new ol.source.XYZ({
     //url: accu,
