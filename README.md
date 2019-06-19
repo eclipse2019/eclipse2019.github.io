@@ -1,3 +1,5 @@
+[es](https://github.com/eclipse2019/eclipse2019.github.io#espa%C3%B1ol)|[en](https://github.com/eclipse2019/eclipse2019.github.io#english)
+
 # English
 
 Since next solar eclipse 2019 will occur near sunset hour, and given the  mountainous topography of Chile, we have to locate ourselves in a place where the north-western horizon can be seen without large obstructions. That's why I developed this map. The map shows in colors the locations where the horizon is clear of mountains and which places are obstructed.
