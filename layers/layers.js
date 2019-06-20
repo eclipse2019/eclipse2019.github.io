@@ -44,7 +44,7 @@ $.ajax({
 // sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=satgoes16FullDiskVis
 var ts_satgoes;
 ts_satgoes = new Date().valueOf()/1000 | 0;
-ts_satgoes = ((((ts_satgoes-56)/600 | 0))-3)*600+56;
+ts_satgoes = ((((ts_satgoes-57)/600 | 0))-3)*600+57;
 /*
 $.ajax({
   url: 'https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=satgoes16FullDiskVis',
