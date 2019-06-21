@@ -23,9 +23,9 @@ var timestampAccu = currentDate.tiempoActual();
 
 //Getting weather.com/sat timestamp
 // sacar timestamp de https://api.weather.com/v3/TileServer/series/productSet?apiKey=d522aa97197fd864d36b418f39ebb323&filter=sat
-var ts_WeatherSat;
-ts_WeatherSat = new Date().valueOf()/1000 | 0;
-ts_WeatherSat = ((ts_WeatherSat/900 | 0)-1)*900;
+//var ts_WeatherSat;
+//ts_WeatherSat = new Date().valueOf()/1000 | 0;
+//ts_WeatherSat = ((ts_WeatherSat/900 | 0)-1)*900;
 
 /*
 $.ajax({
