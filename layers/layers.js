@@ -84,6 +84,30 @@ var lyr_max8_1 = new ol.layer.Tile({
 });
 
 
+var lyr_sanLuis = new ol.layer.Tile({
+  'title': 'myxyz',
+  'opacity': 1.000000,
+  'extent': [-7716203.270578, -3978113.531897, -7087619.212565, -3445836.698070],
+  source: new ol.source.XYZ({
+    minZoom: 6,
+    maxZoom: 11 ,
+    attributions: '<a href=""></a>',
+    url: './layers/tiles_sanLuis/{z}/{x}/{y}.png',
+  })
+});
+
+var lyr_caba = new ol.layer.Tile({
+  'title': 'myxyz',
+  'opacity': 1.000000,
+  'extent': [-7205710.639046, -4369063.518953, -6394191.551163, -3762873.083298],
+  source: new ol.source.XYZ({
+    minZoom: 6,
+    maxZoom: 11 ,
+    attributions: '<a href=""></a>',
+    url: './layers/tiles_caba/{z}/{x}/{y}.png',
+  })
+});
+
 var lyr_GoogleMapsRoads_2 = new ol.layer.Tile({
   'title': 'Google Maps Roads',
   'type': 'base',
@@ -185,12 +209,14 @@ var group_Path = new ol.layer.Group({
   title: "Path"
 });
 var group_group1 = new ol.layer.Group({
-  layers: [lyr_GoogleMapsClassic_0,lyr_max8_1,lyr_GoogleMapsRoads_2,],
+  layers: [lyr_GoogleMapsClassic_0,lyr_caba,lyr_sanLuis,lyr_max8_1,lyr_GoogleMapsRoads_2,],
   title: "group1"
 });
 
 lyr_GoogleMapsClassic_0.setVisible(true);
 lyr_max8_1.setVisible(true);
+lyr_sanLuis.setVisible(true);
+lyr_caba.setVisible(true);
 lyr_GoogleMapsRoads_2.setVisible(true);
 lyr_pais_1.setVisible(true);
 lyr_centralLine_3.setVisible(true);
